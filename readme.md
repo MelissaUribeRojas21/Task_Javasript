@@ -1,1 +1,1 @@
-# Task -  Amazing Events - JS
+# Task 1 -  Amazing Events - JS

@@ -1,3 +1,27 @@
+async infoDetails() = {
+    try{
+        var eventsJson = await fetch(`https://amazing-events.herokuapp.com/api/events`)
+        eventsJson = await eventsJson.json()
+    }catch(notFound) {
+        console.log(notFound)
+    }
+const detailContainer = document.getElementById("detailCard")
+
+let totalEvents = eventsJson.events
+
+let idLocation = location.search.slice(4)
+
+let filteredEvent = totalEvents.filter(event => idLocation == event._id)
+filteredEvent = filteredEvent[0]
+
+cardDetail(filteredEvent)
+}
+
+infoDetails()
+
+//_____________________________________________________
+
+/* 
 //Obtener el contenedor de la card desde el HTML:
 const detailContainer = document.getElementById("detailCard")
 
@@ -13,7 +37,7 @@ let filteredEvent = totalEvents.filter(event => idLocation == event._id)
 filteredEvent = filteredEvent[0]
 
 //Imprimir el evento
-cardDetail(filteredEvent)
+cardDetail(filteredEvent) */
 
 //Crear una función para obtener la info de la card
 function cardDetail(event) {

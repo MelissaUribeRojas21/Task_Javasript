@@ -166,7 +166,7 @@ function insertCard(event) {
                 <p class="card-text">${event.description}</p>
                 <div>
                     <h6>$${event.price}</h6>
-                    <a href="../../pages/details.html?id=${event._id}" class="btn btn-sm">View more</a>
+                    <a href="../../pages/details.html?event=${event._id}" class="btn btn-sm">View more</a>
                 </div>
             </div>
     </div>

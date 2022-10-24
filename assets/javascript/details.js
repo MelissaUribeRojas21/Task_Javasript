@@ -2,41 +2,20 @@ const detailContainer = document.getElementById("detailCard")
 
 async function infoDetails(){
     try{
-        var detailsJson = await fetch('https://amazing-events.herokuapp.com/api/events')
+        var detailsJson = await fetch('https://mind-hub.up.railway.app/amazing')
         detailsJson = await detailsJson.json()
     }catch(notFound){
         console.log(notFound)
     }
     let totalEvents = detailsJson.events
     let idLocation = location.search.slice(7)
-    let filteredEvent = totalEvents.find((event) => idLocation == event._id)
+    let filteredEvent = totalEvents.find((event) => idLocation == event.id)
 
     cardDetail(filteredEvent)
 }
 
 infoDetails()
 
-//_____________________________________________________
-
-/* 
-//Obtener el contenedor de la card desde el HTML:
-const detailContainer = document.getElementById("detailCard")
-
-// Obtener los eventos del Data
-let totalEvents = data.events
-
-//Obtener el ID del location
-
-let idLocation = location.search.slice(4)
-
-//Filtrar array (events) para que solo devuelva 1 evento que coincida con el ID obtenido por el location
-let filteredEvent = totalEvents.filter(event => idLocation == event._id)
-filteredEvent = filteredEvent[0]
-
-//Imprimir el evento
-cardDetail(filteredEvent) */
-
-//Crear una función para obtener la info de la card
 function cardDetail(event) {
     if (event.assistance !== undefined) {
         detailContainer.innerHTML = `
@@ -65,6 +44,7 @@ function cardDetail(event) {
     </article>
     `
     } else {
+        date = new Date(event.date).toDateString();
         detailContainer.innerHTML = `
     <article class="info-container-2">
         <div>
@@ -83,10 +63,8 @@ function cardDetail(event) {
             <p>${event.place}</p>
             <h5>Capacity</h5>
             <p>${event.capacity}</p>
-            <h5>Assistance</h5>
-            <p>${event.assistance}</p>
-            <h5>Estimated</h5>
-            <p>${event.estimated}</p>
+            <h5>Estimate</h5>
+            <p>${event.estimate}</p>
             <h5>Price</h5>
             <p>$${event.price}</p>
         </div>
@@ -94,4 +72,6 @@ function cardDetail(event) {
     `
     }
 }
+
+
 

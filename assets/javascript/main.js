@@ -5,13 +5,13 @@ const inputSearch = document.getElementById("inputSearch")
 
 async function infoCards(){
     try{
-        var eventsFromJson = await fetch(`https://amazing-events.herokuapp.com/api/events`)
+        var eventsFromJson = await fetch(`https://mind-hub.up.railway.app/amazing`)
         eventsFromJson = await eventsFromJson.json()
     }catch(error){
         console.log(error)
     }
 
-const currentDate = eventsFromJson.currentDate
+const currentDate = eventsFromJson.date
 
 const totalCards = eventsFromJson.events.map(event => event)
 
@@ -55,7 +55,6 @@ function checkEvents(array) {
 }
 
 infoCards()
-
 
 
 //____________________________________________________________
@@ -166,7 +165,7 @@ function insertCard(event) {
                 <p class="card-text">${event.description}</p>
                 <div>
                     <h6>$${event.price}</h6>
-                    <a href="../../pages/details.html?event=${event._id}" class="btn btn-sm">View more</a>
+                    <a href="../../pages/details.html?event=${event.id}" class="btn btn-sm">View more</a>
                 </div>
             </div>
     </div>

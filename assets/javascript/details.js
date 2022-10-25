@@ -2,7 +2,7 @@ const detailContainer = document.getElementById("detailCard")
 
 async function infoDetails(){
     try{
-        var detailsJson = await fetch('https://mind-hub.up.railway.app/amazing')
+        var detailsJson = await fetch('https://mh-amazing.herokuapp.com/amazing')
         detailsJson = await detailsJson.json()
     }catch(notFound){
         console.log(notFound)

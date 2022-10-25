@@ -5,7 +5,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.main-container {
+body{
     background-size: 300% 300%;
     background-image: linear-gradient(-45deg,
             #B5838D 0%,

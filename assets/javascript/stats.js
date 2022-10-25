@@ -65,7 +65,6 @@ async function apiEvents() {
                             </tr>`
     });
 
-
     upcomingCategories.forEach(element => {
         let capacity = 0
         let estimate = 0
@@ -85,9 +84,9 @@ async function apiEvents() {
     });
 
     table1.innerHTML += `<tr>
-                                <td>${maxPercAssi.name}: ${maxPercAssi.percentageAssistance}%</td>
-                                <td>${minPercAssi.name}: ${minPercAssi.percentageAssistance}%</td>
-                                <td>${maxCapEvent.name}: ${parseInt(maxCapEvent.capacity).toLocaleString('de-DE')}</td>
+                                <td>${mayorAttendance.name}: ${Math.round(mayorAttendance.attendancePerc)}%</td>
+                                <td>${lowerAttendance.name}: ${Math.round(lowerAttendance.attendancePerc)}%</td>
+                                <td>${mayorCapacity.name}: ${parseInt(mayorCapacity.capacity).toLocaleString('de-DE')}</td>
                             </tr>`
 }
 apiEvents()

@@ -219,6 +219,11 @@ body {
 
 .table {
     margin-top: 2em;
+    color: white;
+}
+.table .bold{
+    font-weight: bold;
+    color: #5D2A42;
 }
 
 .table-container {
